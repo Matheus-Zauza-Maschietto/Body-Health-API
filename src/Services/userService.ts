@@ -2,11 +2,22 @@ import { LoginDto } from "../DTOs/loginDto";
 import { User } from "../Models/user";
 import userRepository, { UserRepository } from "../Repositories/userRepository"
 import { v4 as uuidv4 } from 'uuid';
+import {UserResDTO} from "../DTOs/user.dto";
+import {UserConverter} from "../Converter/user.converter";
 
 export class UserService {
     private readonly userRepository: UserRepository;
     constructor() {
         this.userRepository = userRepository
+    }
+
+    public async findAllUsers(): Promise<UserResDTO[]>{
+        return (await userRepository.getUsers())
+            .map(u => UserConverter.entityToRes(u));
+    }
+
+    public async findUserById(id: number): Promise<UserResDTO>{
+        return UserConverter.entityToRes((await userRepository.getUserById(id)));
     }
 
     public async createUser(body: any): Promise<User> {

@@ -26,6 +26,12 @@ export class UserRepository{
         })
     }
 
+    public async getUserById(id: number): Promise<User | null>{
+        return await this.userDataSource.findOneBy({
+            id: id,
+        })
+    }
+
     public async getUserByToken(user: User): Promise<User | null>{
         const usuarioByToken = this.userDataSource.findOneBy({
             token: user.token,

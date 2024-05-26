@@ -7,7 +7,8 @@ import tarefaController from './Controllers/tarefaController'
 
 const routes = Router()
 routes.get("/health-check", testController.healthCheck)
-routes.get("/usuarios", userController.getUser)
+routes.get("/usuarios", userController.getUsers)
+routes.get("/usuarios/:id", userController.getUserById)
 routes.post("/usuarios", userController.createUser)
 routes.post("/usuarios/login", userController.loginUser)
 

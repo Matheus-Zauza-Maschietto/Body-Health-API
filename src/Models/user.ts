@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import {Sessao} from "./sessao";
 
 @Entity()
 export class User {
@@ -12,12 +13,26 @@ export class User {
     peso: number
 
     @Column()
-    senha: string
+    dataNascimento: Date
+
+    @Column()
+    experiencia: number
+
+    @Column()
+    sexo: string
+
+    @Column()
+    sobre: string
+
+    sessoes: Sessao[];
 
     @Column({
         unique: true,
     })
     email: string
+
+    @Column()
+    senha: string
 
     @Column({ nullable: true })
     token: string
