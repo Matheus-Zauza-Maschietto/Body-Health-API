@@ -10,7 +10,6 @@ class UserController{
     }
 
     public async createUser(req: Request, res: Response): Promise<Response>{
-
         try{
             let user = await this.userService.createUser(req.body)
             res.json(user).status(201)

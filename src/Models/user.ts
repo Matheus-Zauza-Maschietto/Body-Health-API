@@ -9,19 +9,19 @@ export class User {
     @Column()
     nome: string
 
-    @Column()
+    @Column({ nullable: true })
     peso: number
 
     @Column()
     dataNascimento: Date
 
-    @Column()
+    @Column({ nullable: true })
     experiencia: number
 
     @Column()
     sexo: string
 
-    @Column()
+    @Column({ nullable: true })
     sobre: string
 
     sessoes: Sessao[];
@@ -40,4 +40,9 @@ export class User {
     @Column({ nullable: true })
     tokenExpiracao: Date
 
+    @Column({ nullable: true })
+    xp: number
+
+    @Column()
+    ehPersonal: boolean
 }
