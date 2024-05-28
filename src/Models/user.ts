@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
 import {Sessao} from "./sessao";
 
 @Entity()
@@ -24,6 +24,7 @@ export class User {
     @Column({ nullable: true })
     sobre: string
 
+    @ManyToMany({ JoinColumn(Sessao) })
     sessoes: Sessao[];
 
     @Column({
