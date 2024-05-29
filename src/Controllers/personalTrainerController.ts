@@ -33,6 +33,15 @@ export class PersonalTrainerController{
         return res;
     }
 
+    public async getPersonalTrainers(req: Request, res: Response): Promise<Response>{
+        try {
+            await this.userService.validateToken(req.headers.authorization)
+            res.json(await this.personalTrainerService.findAllPersonalTrainers());
+        }catch(error: any){
+            res.json({error: error.message}).status(500)
+        }
+        return res;
+    }
 }
 
 export default new PersonalTrainerController()

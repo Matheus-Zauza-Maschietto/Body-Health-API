@@ -1,7 +1,6 @@
 import {Request, Response} from 'express'
 import { UserService } from '../Services/userService';
 import { PeopleService } from '../Services/pessoaService';
-import { User } from '../Models/user';
 
 class PeopleController{
 
@@ -19,16 +18,6 @@ class PeopleController{
             res.json({"error": error.message}).status(500)
         }
 
-        return res;
-    }
-
-    public async getPeopleById(req: Request, res: Response): Promise<Response>{
-        try {
-            User? user2 = await this.peopleService.validateToken(req.headers.authorization)
-            res.json(await this.peopleService.findPeopleById(Number.parseInt(user.)));
-        }catch(error: any){
-            res.json({error: error.message}).status(500)
-        }
         return res;
     }
 

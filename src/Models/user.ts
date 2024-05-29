@@ -1,5 +1,5 @@
-import { Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
-import {Sessao} from "./sessao";
+import { Column, Entity, JoinColumn, ManyToMany, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
+import {Session} from "./session";
 
 @Entity()
 export class User {
@@ -24,8 +24,9 @@ export class User {
     @Column({ nullable: true })
     sobre: string
 
-    @ManyToMany({ JoinColumn(Sessao) })
-    sessoes: Sessao[];
+    @OneToMany(() => Session, (session) => session.personalTrainerId)
+    @OneToMany(() => Session, (session) => session.pessoaId)
+    sessoes: Session[];
 
     @Column({
         unique: true,

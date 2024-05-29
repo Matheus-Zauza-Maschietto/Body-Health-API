@@ -1,8 +1,6 @@
 import { DataSource } from "typeorm";
 import { User } from "./Models/user";
-import { Categoria } from "./Models/categoria";
-import { Tarefa } from "./Models/tarefa";
-import { Status } from "./Models/status";
+import { Session } from "./Models/session";
 
 export const AppDataSource = new DataSource({
     type: "mssql",
@@ -13,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "master",
     synchronize: true,
     logging: true,
-    entities: [User, Categoria, Tarefa, Status],
+    entities: [User, Session],
     subscribers: [],
     migrations: [],
     extra: {

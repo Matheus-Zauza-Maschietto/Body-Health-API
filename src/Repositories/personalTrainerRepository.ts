@@ -29,7 +29,7 @@ export class PersonalTrainerRepository{
 
     public async getPersonalTrainers(): Promise<User[]>{
         return await this.userDataSource.findBy({
-            ehPersonal: true
+            ehPersonal: true,
         })
     }
 }
