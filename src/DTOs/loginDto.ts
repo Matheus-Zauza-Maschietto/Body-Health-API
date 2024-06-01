@@ -1,4 +1,4 @@
-import { User } from "src/Models/user"
+import { User } from "../Models/user"
 
 export class LoginDto{
     public email: string

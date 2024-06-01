@@ -24,8 +24,8 @@ class PeopleController{
 
     public async getPeopleById(req: Request, res: Response): Promise<Response>{
         try {
-            User? user2 = await this.peopleService.validateToken(req.headers.authorization)
-            res.json(await this.peopleService.findPeopleById(Number.parseInt(user.)));
+            const user = await this.peopleService.validateToken(req.headers.authorization)
+            res.json(user);
         }catch(error: any){
             res.json({error: error.message}).status(500)
         }

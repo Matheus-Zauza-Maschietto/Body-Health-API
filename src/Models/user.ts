@@ -24,8 +24,8 @@ export class User {
     @Column({ nullable: true })
     sobre: string
 
-    @OneToMany(() => Session, (session) => session.personalTrainerId)
-    @OneToMany(() => Session, (session) => session.pessoaId)
+    @OneToMany(() => Session, (session) => session.personalTrainer)
+    @OneToMany(() => Session, (session) => session.pessoa)
     sessoes: Session[];
 
     @Column({

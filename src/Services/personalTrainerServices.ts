@@ -1,7 +1,7 @@
 import { LoginDto } from "../DTOs/loginDto";
 import { User } from "../Models/user";
 import userRepository, { UserRepository } from "../Repositories/userRepository"
-import personalTrainerRepository, { PersonalTrainerRepository }  from "src/Repositories/personalTrainerRepository";
+import personalTrainerRepository, { PersonalTrainerRepository }  from "../Repositories/personalTrainerRepository";
 import { v4 as uuidv4 } from 'uuid';
 import {UserResDTO} from "../DTOs/user.dto";
 import {UserConverter} from "../Converter/user.converter";
@@ -19,7 +19,7 @@ export class PersonalTrainerService {
             .map(u => UserConverter.entityToRes(u));
     }
 
-    public async findPeopleById(id: number): Promise<UserResDTO>{
+    public async findPersonalTrainerById(id: number): Promise<UserResDTO>{
         return UserConverter.entityToRes((await userRepository.getUserById(id)));
     }
 

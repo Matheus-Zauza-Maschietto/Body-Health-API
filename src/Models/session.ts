@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import {User} from "./user";
 
 @Entity()
@@ -6,11 +6,11 @@ export class Session {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
-    pessoaId: User
+    @ManyToOne(() => User, (user) => user.sessoes)
+    pessoa: User
 
-    @Column()
-    personalTrainerId: User
+    @ManyToOne(() => User, (user) => user.sessoes)
+    personalTrainer: User
 
     @Column()
     dataHora: Date

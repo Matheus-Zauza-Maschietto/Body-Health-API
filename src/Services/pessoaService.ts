@@ -1,7 +1,7 @@
 import { LoginDto } from "../DTOs/loginDto";
 import { User } from "../Models/user";
 import userRepository, { UserRepository } from "../Repositories/userRepository"
-import peopleRepository, { PeopleRepository } from "src/Repositories/peopleRepository";
+import peopleRepository, { PeopleRepository } from "../Repositories/peopleRepository";
 import { v4 as uuidv4 } from 'uuid';
 import {UserResDTO} from "../DTOs/user.dto";
 import {UserConverter} from "../Converter/user.converter";

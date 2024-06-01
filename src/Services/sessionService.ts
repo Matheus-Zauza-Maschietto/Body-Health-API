@@ -14,7 +14,7 @@ export class SessionService {
     public async createSession(body: any, people: User, personalTrainerId: number): Promise<Session> {
         const newSession = new Session()
         
-        newSession.pessoaId = people
+        newSession.pessoa = people
         newSession.duracao = body.duracao
         newSession.dataHora = body.dataHora
         newSession.localizacao = body.localizacao
@@ -24,7 +24,7 @@ export class SessionService {
             throw new Error("Personal Trainer não encontrado.")
         }
 
-        newSession.personalTrainerId = personalTrainer
+        newSession.personalTrainer = personalTrainer
 
         return await this.sessionRepository.createSession(newSession)
     }

@@ -17,13 +17,13 @@ export class SessionRepository{
 
     public async getSessionsByPeople(people: User): Promise<Session[]>{
         return await this.sessionDataSource.findBy({
-            pessoaId: people
+            pessoa: people
         })
     }
 
     public async getSessionsByPersonalTrainer(personalTrainer: Session): Promise<Session[]>{
         return await this.sessionDataSource.findBy({
-            pessoaId: personalTrainer
+            pessoa: personalTrainer
         })
     }
 

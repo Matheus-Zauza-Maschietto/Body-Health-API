@@ -1,6 +1,6 @@
 import {Request, Response} from 'express'
 import { UserService } from '../Services/userService';
-import { PersonalTrainerService } from 'src/Services/personalTrainerServices';
+import { PersonalTrainerService } from '../Services/personalTrainerServices';
 
 export class PersonalTrainerController{
 
@@ -26,7 +26,7 @@ export class PersonalTrainerController{
     public async getPersonalTrainerById(req: Request, res: Response): Promise<Response>{
         try {
             await this.userService.validateToken(req.headers.authorization)
-            res.json(await this.personalTrainerService.findPeopleById(Number.parseInt(req.params.id)));
+            res.json(await this.personalTrainerService.findPersonalTrainerById(Number.parseInt(req.params.id)));
         }catch(error: any){
             res.json({error: error.message}).status(500)
         }

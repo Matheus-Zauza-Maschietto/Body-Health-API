@@ -1,9 +1,9 @@
 import { Router } from 'express'
 import testController from './Controllers/testController'
 import userController from './Controllers/userController'
-import categoriaController from './Controllers/categoriaController'
-import statusController from './Controllers/statusController'
-import tarefaController from './Controllers/tarefaController'
+import peopleController from './Controllers/peopleController'
+import personalTrainerController from './Controllers/personalTrainerController'
+import sessionsController from './Controllers/sessionsController'
 
 const routes = Router()
 routes.get("/health-check", testController.healthCheck)
@@ -12,23 +12,14 @@ routes.get("/usuarios/:id", userController.getUserById)
 routes.post("/usuarios", userController.createUser)
 routes.post("/usuarios/login", userController.loginUser)
 
-routes.post("/categorias", categoriaController.createCategoria)
-routes.get("/categorias", categoriaController.getCategorias)
-routes.get("/categorias/:id", categoriaController.getCategoriaById)
-routes.put("/categorias/:id", categoriaController.updateCategoriaById)
-routes.delete("/categorias/:id", categoriaController.deleteCategoriaById)
+routes.get("/pessoa/:id", peopleController.getPeopleById)
 
-routes.post("/status/", statusController.createStatus)
-routes.get("/status/", statusController.getStatus)
-routes.get("/status/:id", statusController.getStatusById)
-routes.put("/status/:id", statusController.UpdateStatusById)
-routes.delete("/status/:id", statusController.deleteStatusById)
+routes.get("/personal/:id", personalTrainerController.getPersonalTrainerById)
+routes.get("/personal", personalTrainerController.getPersonalTrainers)
 
-routes.post("/tarefas/", tarefaController.createTerafa)
-routes.get("/tarefas/", tarefaController.getTarefas)
-routes.get("/tarefas/:id", tarefaController.getTarefaById)
-routes.put("/tarefas/:id", tarefaController.updateTarefaById)
-routes.delete("/tarefas/:id", tarefaController.deleteTarefaById)
+routes.post("/session", sessionsController.createSession)
+routes.get("/session", sessionsController.getSessionsByUser)
+
 export {
     routes
 } 
