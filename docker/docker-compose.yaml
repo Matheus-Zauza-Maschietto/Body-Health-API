@@ -14,19 +14,19 @@ services:
     networks:
       - aplication_network
   
-  API:
-    depends_on:
-      - DB
-    image: node:latest
-    container_name: api
-    working_dir: /app
-    volumes:
-      - ../.:/app
-    ports:
-      - 3000:3000
-    networks:
-      - aplication_network 
-    command: sh -c "npm install && npm start"
+  # API:
+  #   depends_on:
+  #     - DB
+  #   image: node:latest
+  #   container_name: api
+  #   working_dir: /app
+  #   volumes:
+  #     - ../.:/app
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - aplication_network 
+  #   command: sh -c "npm start"
 
 volumes:
   db_volume:

@@ -12,13 +12,13 @@ export class User {
     @Column({ nullable: true })
     peso: number
 
-    @Column()
+    @Column({ nullable: true })
     dataNascimento: Date
 
     @Column({ nullable: true })
-    experiencia: number
+    experiencia: string
 
-    @Column()
+    @Column({ nullable: true })
     sexo: string
 
     @Column({ nullable: true })

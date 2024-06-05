@@ -37,7 +37,6 @@ export class PeopleService {
         if (existPeople != null) {
             throw new Error("Email ja cadastrado.")
         }
-
         return await this.peopleRepository.createPeople(newUser)
     }
 

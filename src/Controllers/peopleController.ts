@@ -8,6 +8,9 @@ class PeopleController{
     private readonly peopleService: PeopleService;
     constructor(){
         this.peopleService = new PeopleService();
+
+        this.createPeople = this.createPeople.bind(this);
+        this.getPeopleById = this.getPeopleById.bind(this);
     }
 
     public async createPeople(req: Request, res: Response): Promise<Response>{
@@ -16,7 +19,7 @@ class PeopleController{
             res.json(people).status(201)
         }
         catch(error: any){
-            res.json({"error": error.message}).status(500)
+            res.json({"error": error.message, "StackTrace": error.stack}).status(500)
         }
 
         return res;
@@ -27,7 +30,7 @@ class PeopleController{
             const user = await this.peopleService.validateToken(req.headers.authorization)
             res.json(user);
         }catch(error: any){
-            res.json({error: error.message}).status(500)
+            res.json({error: error.message, "StackTrace": error.stack}).status(500)
         }
         return res;
     }

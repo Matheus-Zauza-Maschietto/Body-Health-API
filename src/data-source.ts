@@ -4,7 +4,8 @@ import { Session } from "./Models/session";
 
 export const AppDataSource = new DataSource({
     type: "mssql",
-    host: "sql-server",
+    //host: "sql-server",
+    host: "localhost",
     port: 1433,
     username: "sa",
     password: "Senha123!",

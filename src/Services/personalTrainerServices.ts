@@ -28,7 +28,6 @@ export class PersonalTrainerService {
         newUser.nome = body.nome
         newUser.email = body.email
         newUser.senha = body.senha
-        //newUser.peso = body.peso
         newUser.sobre = body.sobre
         newUser.experiencia = body.experiencia
         newUser.ehPersonal = true

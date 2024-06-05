@@ -1,18 +1,17 @@
 import {Request, Response} from 'express'
-import { UserService } from '../Services/userService';
 import { SessionService } from '../Services/sessionService';
-import { PersonalTrainerService } from '../Services/personalTrainerServices';
 import { PeopleService } from '../Services/pessoaService';
 
-class PeopleController{
+class SessionController{
 
     private readonly sessionService: SessionService;
     private readonly peopleService: PeopleService;
-    private readonly personalTrainerService: PersonalTrainerService;
     constructor(){
         this.sessionService = new SessionService();
-        this.personalTrainerService = new PersonalTrainerService();
         this.peopleService = new PeopleService();
+
+        this.createSession = this.createSession.bind(this);
+        this.getSessionsByUser = this.getSessionsByUser.bind(this);
     }
 
     public async createSession(req: Request, res: Response): Promise<Response>{
@@ -22,7 +21,7 @@ class PeopleController{
             res.json(session).status(201)
         }
         catch(error: any){
-            res.json({"error": error.message}).status(500)
+            res.json({"error": error.message, "StackTrace": error.stack}).status(500)
         }
 
         return res;
@@ -43,4 +42,4 @@ class PeopleController{
 
 }
 
-export default new PeopleController()
+export default new SessionController()

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "npx ts-node src/server.ts"
+    "start": "npx ts-node src/server.ts --inspect"
   },
   "keywords": [],
   "author": "",

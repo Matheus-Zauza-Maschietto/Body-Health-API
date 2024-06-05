@@ -12,6 +12,8 @@ export class UserConverter{
         dto.email = entity.email;
         dto.dataNascimento = entity.dataNascimento;
         dto.sexo = entity.sexo;
+        dto.id = entity.id;
+        dto.experiencia = entity.experiencia;
         dto.sobre = entity.sobre;
 
         return dto;

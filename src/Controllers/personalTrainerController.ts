@@ -9,6 +9,10 @@ export class PersonalTrainerController{
     constructor(){
         this.personalTrainerService = new PersonalTrainerService();
         this.userService = new UserService();
+
+        this.getPersonalTrainers = this.getPersonalTrainers.bind(this);
+        this.createPersonalTrainer = this.createPersonalTrainer.bind(this);
+        this.getPersonalTrainerById = this.getPersonalTrainerById.bind(this);
     }
 
     public async createPersonalTrainer(req: Request, res: Response): Promise<Response>{
@@ -17,7 +21,7 @@ export class PersonalTrainerController{
             res.json(user).status(201)
         }
         catch(error: any){
-            res.json({"error": error.message}).status(500)
+            res.json({"error": error.message, "StackTrace": error.stack}).status(500)
         }
 
         return res;
@@ -28,7 +32,7 @@ export class PersonalTrainerController{
             await this.userService.validateToken(req.headers.authorization)
             res.json(await this.personalTrainerService.findPersonalTrainerById(Number.parseInt(req.params.id)));
         }catch(error: any){
-            res.json({error: error.message}).status(500)
+            res.json({error: error.message, "StackTrace": error.stack}).status(500)
         }
         return res;
     }
@@ -38,7 +42,7 @@ export class PersonalTrainerController{
             await this.userService.validateToken(req.headers.authorization)
             res.json(await this.personalTrainerService.findAllPersonalTrainers());
         }catch(error: any){
-            res.json({error: error.message}).status(500)
+            res.json({error: error.message, "StackTrace": error.stack}).status(500)
         }
         return res;
     }
